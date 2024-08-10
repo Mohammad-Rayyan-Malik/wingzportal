@@ -1,0 +1,27 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    margin: 0px;
+    width: 1000;
+}
+
+
+form{
+    width: 400px;
+    border: 1px solid black;
+    margin-top: 0px;
+   padding: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 5px rgba(127, 138, 127, 0.87);
+}
+form label{ display: block;
+
+}
+
+
+
+
+
