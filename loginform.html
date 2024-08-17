@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+form{
+    width: 400px;
+}
+
+.container {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.form-container {
+    background-color: #F1E7BA;
+    padding: 30px;
+    border-radius: 10px;
+}
+label{
+    color: white;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    background-color: #E84420;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <form action="">
+            <label for="username">Enter usernsme:</label>
+            <input type="email" placeholder="Enter email ID">
+            <label for="password">Enter password:</label>
+            <input type="password" placeholder="Password here">
+            <button type="submit">Login</button>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
