@@ -1,0 +1,120 @@
+function notificationPopup(data, notificationServerUrl) {
+
+    const serverUrl = notificationServerUrl + '/notifications' + '/mark-status/' + data.id;
+    const template =
+        "<div style='padding: 10px;'>" +
+        "<h6 style='margin-top:0;'>" + data.title + "</h6>" +
+        "<p>" + data.description + "</p>" +
+        "</div>";
+
+    const config = {
+        class: 'my-noty',
+        theme: 'mint',
+        type: 'info',
+        layout: 'topRight',
+        text: template,
+        timeout: 10000,
+        sounds: {
+            conditions: ['docVisible', 'docHidden'],
+            sources: ['/js/plugins/noty/notification.wav']
+        },
+        callbacks: {
+            onClick: function () {
+                $.ajax({
+                    url: serverUrl,
+                    type: 'patch',
+                    data: { status: 1 },
+                    success: function (response) {
+                    },
+                    error: function (error) {
+                    },
+                    complete: function () {
+                        window.location = data.link;
+                    }
+                })
+            }
+        }
+    };
+
+    if (data.severity == 0) {
+        config['type'] = 'info';
+    } else if (data.severity == 1) {
+        config['type'] = 'warning';
+    } else if (data.severity == 2) {
+        config['type'] = 'error';
+    } else if (data.severity == 3) {
+        config['type'] = 'success';
+    }
+
+    // Calling notification popup
+    new Noty(config).show();
+}
+
+function newSocket(notificationServerUrl) {
+    const socket = io(notificationServerUrl, { autoConnect: false, transports: ['websocket'] });
+    socket.on('connect', function () {
+        console.log('Connected');
+    });
+
+    socket.on('exception', function (data) {
+        console.log('event', data);
+    });
+
+    socket.on('disconnect', function () {
+        console.log('Disconnected');
+        localStorage.removeItem("sessionID");
+    });
+    socket.on("connect_error", (err) => {
+        // console.error(err);
+        if (err.message == 'Invalid username') {
+            localStorage.removeItem("sessionID");
+        }
+    });
+
+    // On new notification
+    socket.on('NEW_NOTIFICATION', (data) => {
+        notificationPopup(data, notificationServerUrl);
+        const notificationCountEl = document.querySelector('#noty-unread-count');
+        if (notificationCountEl) {
+            let count = parseInt(notificationCountEl.textContent);
+            count = count >= 99 ? '99+' : ++count;
+            notificationCountEl.textContent = count;
+        }   
+    });
+
+    socket.on("session", ({ sessionID, userID }) => {
+        // attach the session ID to the next reconnection attempts
+        socket.auth = { sessionID };
+
+        // store it in the localStorage
+        localStorage.setItem("sessionID", sessionID);
+
+        // save the ID of the user
+        socket.userID = userID;
+    });
+
+    return socket;
+}
+
+function connectToSocket(userId, socket) {
+    //It will connect to socket
+    socket.auth = { username: userId };
+    socket.connect();
+}
+
+function init(userId, socket) {
+    //It will initialized the session and the connect the session
+    const sessionID = localStorage.getItem("sessionID");
+
+    if (sessionID) {
+        // this.usernameAlreadySelected = true;
+        socket.auth = { sessionID };
+        socket.connect();
+    } else {
+        connectToSocket(userId, socket);
+    }
+
+    
+}
+
+

@@ -1,0 +1,220 @@
+/*logo css*/
+.navbar-brand img {
+    padding: 0 16%;
+    margin: 0 !important;
+    height: inherit;
+}
+
+/* 
+    // .navheight{
+    //     position: fixed;
+    //     height:13vh!important;
+    // } */
+.test {
+    width: 20%;
+}
+
+.mobile-img-logo {
+    width: 4rem;
+}
+
+.navbar-header {
+    background-color: #273238 !important;
+    padding: 2rem 17.3px;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+.header-highlight .navbar-header>.navbar-nav>li>a {
+    color: #777;
+}
+
+
+.navbar-header .navbar-nav>li>a {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #fff;
+}
+
+.navbar-header .navbar-nav>li>a:hover {
+    text-decoration: none;
+    background-color: #273238 !important;
+}
+
+/*end logo css*/
+
+.common-border {
+    border: 1px solid #E2E2E2;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.panel-body {
+    margin-top: 10rem !important;
+}
+
+.header-title {
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.common-profile {
+    height: 3.5rem!important;
+    width: 3.5rem!important;
+    border-radius: 50%!important;
+    border: 1px solid #000000;
+}
+
+.student-name {
+    display: inline;
+    font-size: 1.2rem;
+    color: #333;
+    padding-left: 1rem;
+}
+
+.student-name>span {
+    font-size: 1.4rem;
+    color: #000;
+    display: block;
+    font-weight: 500;
+}
+
+.title {
+    color: #000000;
+    opacity: 1;
+    margin-left: 4rem;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.title>span {
+    font-weight: bold;
+}
+
+.border-left-profile {
+    border-left: 1px solid #ddd;
+    height: 4rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.header-highlight {
+    position: relative;
+}
+
+.iconsbell {
+    border: 1px solid #E2E2E2;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    padding: 5px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.icon-bell2 {
+    right: 5px;
+}
+
+.status-count {
+    position: absolute;
+    top: 7px;
+    right: 18px;
+    display: block;
+    background: #F44336;
+    line-height: 22px;
+    font-weight: 500;
+    padding: 0;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    min-width: 7px;
+    height: 7px;
+}
+
+.ticket-count {
+    right: -5px;
+}
+
+.header-title-name {
+    display: flex !important;
+    justify-content: flex-start !important;
+    margin-left: 4rem !important;
+}
+
+@media(max-width:767px) {
+    .only-mob {
+        display: block !important;
+    }
+
+    .navbar-header {
+        padding: 1rem 17.3px;
+
+    }
+
+    .dropdown-toggle {
+        padding: 0 !important;
+    }
+
+    .navbar-right {
+        align-items: center;
+    }
+
+    .common-profile {
+        margin-right: 1rem;
+    }
+
+    .visible-xs-block {
+        display: flex !important;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .iconsbell {
+        height: 30px;
+        width: 30px;
+    }
+
+    .navbar-nav .open .dropdown-menu,
+    .dropdown-content {
+        background: #fff !important;
+        z-index: 3333important;
+        width: 58vwimportant;
+        position: absoluteimportant;
+        left: -130pximportant;
+        border-radius: 2remimportant;
+    }
+
+    #navbar-mobile {
+        margin-top: -3%;
+        margin-left: 0rem !important;
+        display: flex !important;
+        justify-content: flex-start;
+        margin-left: 0rem;
+    }
+
+    .student-name {
+        display: none !important;
+    }
+
+    .border-left-profile {
+        border: 0;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+   
+}

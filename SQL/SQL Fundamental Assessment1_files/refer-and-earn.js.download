@@ -1,0 +1,91 @@
+$(document).ready(function () {
+    var i = 1;
+
+    $('#refer-and-earn').DataTable({
+        "dom": "lrtip",
+        oLanguage: { "sSearch": "" },
+        responsive: true,
+        lengthChange: false,
+        // dataTables_info:true,
+      
+
+        // ajax: 'datafiles/refer-earn-data.json',
+        aoColumns: [
+            { "sWidth": "10%" },
+            { "sWidth": "20%" },
+            { "sWidth": "10%" },
+            { "sWidth": "10%" },
+            { "sWidth": "30%" },
+            { "sWidth": "20%" }
+        ],
+        columnDefs: [{
+            targets: [1, 2, 3, 4], /* column index */
+            orderable: true, /* true or false */
+        }],
+        language: {
+            paginate: {
+                next: '<i class="bi bi-chevron-right"></i>', // or '→'
+                previous: '<i class="bi bi-chevron-left"></i>' // or '←' 
+            }
+        },
+        oLanguage: {
+            "sInfo": "Showing _START_ -  _END_ of _TOTAL_ Results",// text you want show for info section
+        },
+        columns: [
+            {
+                "render": function () {
+                    return i++;
+                }
+            },
+            { data: 'full_name' },
+            { data: 'email' },
+            { data: 'mobile1' },
+            {
+                data: 'best_disposition',
+                // render: function (data) {
+                //     return (data == 0) ? "<span class='payment-status paid'>Enrolled</span>" : (data == 1) ? "<span class='payment-status unpaid'>Qualified Presented</span>" : (data == 12) ? "<span class='payment-status unpaid'>Unpaid</span>" : "<span class='payment-status paid'>Paid</span>";
+                // }
+
+            },
+            { data: 'refer_amount' },
+        ],
+    });
+
+    // $(".refer-submit").click(function(e){
+    //     e.preventDefault();
+
+    //   let fullname = $("#refer-form-fullname").val().length>1;
+    //   console.log(fullname);
+
+    //   let email = $("#refer-form-email").val().length>1;
+    //   console.log(email);
+
+    //   let number = $("#refer-form-number").val().length>1;
+    //   console.log(number);
+
+
+    //   if(fullname && email && number ){
+    //     $('#referFormModal').modal('hide');
+    //     $("#refer-success").modal('show');
+    //   }
+    //   else{
+    //     alert("Sorry please filled the form");
+    //   }
+
+
+    // });
+    // $(".refer-more").click(function(e){
+    //     e.preventDefault();
+    //     $("#refer-success").modal('hide');
+    // });
+
+   
+    // $('#referFormModal').on('hidden.bs.modal', function () {
+    //     $(this).find('form').trigger('reset');
+    // })
+});
+
+
+
+
+

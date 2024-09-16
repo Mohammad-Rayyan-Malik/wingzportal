@@ -1,0 +1,30 @@
+.new-badge {
+    color: #ff9800;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: blink;
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration:1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+}
+
+@media(max-width:767px) {
+    .new-badge {
+        padding-left: 1rem;
+    }
+}
+
+
+
+@-webkit-keyframes blinker {
+    from {
+        opacity: 1.0;
+    }
+
+    to {
+        opacity: 0.0;
+    }
+}

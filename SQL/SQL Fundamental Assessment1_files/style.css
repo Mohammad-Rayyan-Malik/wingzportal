@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem !important;
+    font-family: 'Poppins', sans-serif !important;
+    color: var(--black);
+}
+
+:root {
+    --black: #000;
+    --green: #B0CB1F;
+    --white: #fff;
+    --blue: #21577A;
+    --grey: #a8a8a8;
+
+}
+
+.logo-size {
+    width: 150px;
+}
+
+.backpage {
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+.topbar {
+    background: #fff 0% 0% no-repeat padding-box;
+    -webkit-box-shadow: 3px 16px 19px -15px rgba(0, 0, 0, 0.46);
+    -moz-box-shadow: 3px 16px 19px -15px rgba(0, 0, 0, 0.46);
+    box-shadow: 3px 16px 19px -15px rgba(0, 0, 0, 0.46);
+    opacity: 1;
+    padding: 2rem 2rem;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.topbar h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.rounded-icons{
+    background: #fff;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        height: 2rem;
+    }
+}
+.cursor-not{
+    cursor: not-allowed;
+}
+.topbar-heading {
+    font-size: 1.6rem;
+    margin-bottom: 0;
+    padding-left: 1rem;
+}
+
+.topbar>h1>span {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.left-sidebar {
+    height: 100vh;
+    width: 200px;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.margin-top-space {
+    margin-top: 10rem !important;
+}
+
+.bg-grey {
+    background: #f3f3f3;
+}
+
+.breadcrumb li,
+.breadcrumb li a {
+    font-size: 1.2rem;
+}
+
+.cardtext {
+    color: #141414;
+    font-family: Poppins;
+    font-size: 2.4rem;
+}
+
+.textpara {
+    color: #9A9A9A;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.cardclass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    border-radius: 1rem;
+    background: #FFF;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+@media(max-width:767px) {
+    .left-sidebar {
+        display: none;
+    }
+}
+
+.main-banner::-webkit-scrollbar {
+    display: none;
+}

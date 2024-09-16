@@ -1,0 +1,96 @@
+
+$(document).ready(function () {
+    // $('#fees-ticket').keyup(function () {
+    //     dTable.search($(this).val()).draw(); // this  is for customized searchbox with datatable search feature.
+    // })
+    DataTable.datetime('dd MM YYYY');
+
+    $('#fees-ticket').DataTable({
+        
+        // "dom": '<"pull-left"f><"pull-right"l>tip',
+        "dom": "lrtip",
+        oLanguage: { "sSearch": "" },
+        responsive: true,
+        ordering:  true,
+        order: [[3,'asc'],[0,'desc']],
+        "columnDefs" : [{"targets":0, "type":"date"}],
+        // ajax: 'datafiles/ticket-data.json',
+        lengthChange: false,
+        aoColumns: [
+            { "sWidth": "50%" },
+            { "sWidth": "30%" },
+            { "sWidth": "10%" },
+            { "sWidth": "40%" },
+            { "sWidth": "10%" }
+        ],
+        // columnDefs: [ {
+        //     targets: [1,2,3,4], /* column index */
+        //     orderable: true, /* true or false */
+        //  }],
+        language: {
+            paginate: {
+                next: '<i class="bi bi-chevron-right"></i>', // or '→'
+                previous: '<i class="bi bi-chevron-left"></i>' // or '←' 
+            }
+        },
+        oLanguage: {
+            "sInfo": "Showing _START_ -  _END_ of _TOTAL_ Results",// text you want show for info section
+        },
+
+        columns: [
+            {
+                data: 'date',
+                render: function (data) {
+                    return data;
+
+                }
+            },
+            {
+                data: 'typeName',
+                render: function (data) {
+                    // return (data == 1) ? "<span class='payment-status paid'>Received</span>" : (data == 2) ? "<span class='payment-status unpaid'>Refund</span>" : (data == 3) ? "<span class='payment-status unpaid'>Unpaid</span>" : "<span class='payment-status paid'>Paid</span>";
+                    // console.log(data);
+                    return data;
+                }
+            },
+           
+            {
+                data: 'amount',
+                // render: function (data) {
+                //     if(isEmpty(data)){
+                //         return "-"; 
+                //         }else{ 
+                //             return "₹" + data;
+                    
+                //         }
+                // }
+            },
+            // {
+            //     data: 'action1',
+            //     // render: function (data) {
+            //     //     return "₹" + data;
+            //   //  }
+            // },
+            { data: 'description1',
+              render: function (data) {
+                return data;
+            } 
+           },
+
+            {
+                data: "action",
+                // render: function (data, type, row, meta) {
+                    // return  `<i class="fa fa-envelope" aria-hidden="true"></i>`  +  `<a href="#" target="_blank" class="view-receipt btn btn-warning" style="margin-left:15px;"><i class="fa fa-download" aria-hidden="true"></i></a>`;
+                    // return false;
+
+                // }
+            }
+        ],
+
+    });
+});
+
+
+
+
+
